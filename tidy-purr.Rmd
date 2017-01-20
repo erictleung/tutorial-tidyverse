@@ -1,0 +1,71 @@
+---
+title: "Tidyverse and purrr"
+author: "Eric Leung"
+date: "January 19, 2017"
+output: 
+  ioslides_presentation: 
+    highlight: pygments
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(purrr)
+```
+
+## Tidyverse {.columns-2}
+
+**Core Packages**
+
+- `ggplot2` (graphics)
+- `tibble` (data frames and tables)
+- `tidyr` (make tidy)
+- `readr` (read in formats)
+- `purrr` (functional programming)
+- `dplyr` (manipulate data)
+
+
+<img src="./images/tidy-logos.png" style="height: auto; width: 100%">
+
+
+## Tidyverse (All) {.columns-2}
+
+Part 1
+
+- `broom`
+- `DBI`
+- `dplyr` (H)
+- `forcats`
+- `ggplot2`
+- `haven`
+- `httr` (H)
+- `hms`
+- `jsonlite`
+- `lubridate` (H)
+
+Part 2
+
+- `magrittr`
+- `modelr` (H)
+- `purrr` (H)
+- `readr`
+- `readxl` (H)
+- `stringr`
+- `tibble` (H)
+- `rvest` (H)
+- `tidyr`
+- `xml2`
+
+
+## R for Data Science {.columns-2}
+
+Website: http://r4ds.had.co.nz
+
+<img src="./images/cover.png" style="height: 75%; width: 80%">
+
+
+## Make R functions purrr with functional programming
+
+**Goal**:
+
+> "...allow you to break common list manipulation challenges into independent
+> pieces."
