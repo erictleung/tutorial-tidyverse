@@ -69,3 +69,9 @@ Website: http://r4ds.had.co.nz
 
 > "...allow you to break common list manipulation challenges into independent
 > pieces."
+
+
+## Resources
+
+- https://jennybc.github.io/purrr-tutorial/index.html
+- https://github.com/hadley/purrr
