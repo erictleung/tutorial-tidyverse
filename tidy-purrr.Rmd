@@ -71,6 +71,11 @@ Website: http://r4ds.had.co.nz
 > pieces."
 
 
+## Questions?
+
+<img src="./images/rstudio-hex-purrr.png" style="height: auto; width: 100%">
+
+
 ## Resources
 
 - https://jennybc.github.io/purrr-tutorial/index.html
