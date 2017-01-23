@@ -6,8 +6,9 @@ Presentation on the tidyverse and functional programming in R using purrr
 ## Prerequisites
 
 - `R`
-- `purrr`
+- `purrr` (main package demonstration for presentation)
 - `rmarkdown` (to compile presentation)
+- `repurrrsive` (for nested lists data)
 
 
 ## Compile Presentation
