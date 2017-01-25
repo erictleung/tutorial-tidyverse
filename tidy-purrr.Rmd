@@ -60,7 +60,7 @@ Part 2
 
 Website: http://r4ds.had.co.nz
 
-<img src="./images/cover.png" style="height: 75%; width: 80%">
+<img src="./images/cover.png" style="height: 70%; width: 80%">
 
 
 ## Make R functions purrr with functional programming
