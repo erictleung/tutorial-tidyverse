@@ -90,7 +90,7 @@ map(VECTOR_OR_LIST_INPUT, FUNCTION_TO_APPLY, OPTIONAL_OTHER_STUFF)
 
 ## Questions?
 
-<img src="./images/rstudio-hex-purrr.png" style="height: auto; width: 100%">
+<img src="./images/rstudio-hex-purrr.png" style="height: auto; width: 25%">
 
 
 ## Resources
