@@ -2,8 +2,8 @@
 title: "Tidyverse and purrr"
 author: "Eric Leung"
 date: "January 19, 2017"
-output: 
-  ioslides_presentation: 
+output:
+  ioslides_presentation:
     highlight: pygments
 ---
 
@@ -27,33 +27,33 @@ library(purrr)
 <img src="./images/tidy-logos.png" style="height: auto; width: 100%">
 
 
-## Tidyverse (All) {.columns-2}
+## Tidyverse (All 20 Packages) {.columns-2}
 
 Part 1
 
 - `broom`
 - `DBI`
-- `dplyr` (H)
-- `forcats`
-- `ggplot2`
-- `haven`
-- `httr` (H)
+- `dplyr` (H, RStudio)
+- `forcats` (H, RStudio)
+- `ggplot2` (H, RStudio)
+- `haven` (H, RStudio)
+- `httr` (H, RStudio)
 - `hms`
 - `jsonlite`
 - `lubridate` (H)
 
 Part 2
 
-- `magrittr`
-- `modelr` (H)
-- `purrr` (H)
-- `readr`
-- `readxl` (H)
-- `stringr`
-- `tibble` (H)
-- `rvest` (H)
-- `tidyr`
-- `xml2`
+- `magrittr` (H)
+- `modelr` (H, RStudio)
+- `purrr` (H, RStudio)
+- `readr` (H, RStudio)
+- `readxl` (H, RStudio)
+- `stringr` (H, RStudio)
+- `tibble` (H, RStudio)
+- `rvest` (H, RStudio)
+- `tidyr` (H, RStudio)
+- `xml2` (H, RStudio)
 
 
 ## R for Data Science {.columns-2}
