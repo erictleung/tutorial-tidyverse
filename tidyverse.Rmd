@@ -27,12 +27,11 @@ library(tidyverse)
 <img src="./images/tidy-logos.png" style="height: auto; width: 100%">
 
 
-## Tidyverse (All 20 Packages) {.columns-2}
+## All 20 Imported Packages (`library()`) {.columns-2}
 
 Part 1
 
 - `broom`
-- `DBI`
 - `dplyr` (H, RStudio)
 - `forcats` (H, RStudio)
 - `ggplot2` (H, RStudio)
@@ -96,4 +95,5 @@ map(VECTOR_OR_LIST_INPUT, FUNCTION_TO_APPLY, OPTIONAL_OTHER_STUFF)
 ## Resources
 
 - https://jennybc.github.io/purrr-tutorial/index.html
-- https://github.com/hadley/purrr
+- https://github.com/tidyverse/tidyverse
+- https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
