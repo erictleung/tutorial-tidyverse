@@ -3,6 +3,8 @@
 # Description:
 #   Takes messy output of built-in R functions, such as `lm`, `nls` and turns
 #   them into tidy data frames.
+# Sources:
+#   - https://cran.r-project.org/web/packages/broom/index.html
 
 library(tidyverse)
 
