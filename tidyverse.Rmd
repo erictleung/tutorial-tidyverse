@@ -1,7 +1,7 @@
 ---
-title: "Tidyverse and purrr"
+title: "Using tidyverse to clean and manipulate data"
 author: "Eric Leung"
-date: "January 19, 2017"
+date: "February 16th, 2017"
 output:
   ioslides_presentation:
     highlight: pygments
@@ -29,7 +29,7 @@ library(tidyverse)
 
 ## All 20 Imported Packages (`library()`) {.columns-2}
 
-Part 1
+### Part 1
 
 - `broom`
 - `dplyr` (H, RStudio)
@@ -41,7 +41,7 @@ Part 1
 - `jsonlite`
 - `lubridate` (H)
 
-Part 2
+### Part 2
 
 - `magrittr` (H)
 - `modelr` (H, RStudio)
@@ -60,6 +60,52 @@ Part 2
 Website: http://r4ds.had.co.nz
 
 <img src="./images/cover.png" style="height: 70%; width: 80%">
+
+
+## Four Basic Principles to Tidyverse
+
+1. Reuse existing data structures
+2. Compose simple functions with the pipe
+3. Embrace functional programming
+4. Design for humans
+
+**Source**:
+
+https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
+
+## 1. Reuse existing data structures
+
+- Re-use pre-existing data structures
+- Many packages (e.g. ggplot2, dplyr) use rectangular data
+- Use data frames or tibbles
+
+
+## 2. Compose simple functions with the pipe
+
+- The pipe character in R is `%>%`
+- Functions should be "simple" and do one thing well
+- Avoid mixing side-effects
+    - Returns object OR
+    - Side-effect i.e. changes the input data
+- Function names should be verbs
+
+
+## 3. Embrace functional programming
+
+- R is a functional language
+- Immutable objects == objects that don't change
+- In other words, if you want to make changes, do a copy-on-modify
+- Use tools that abstract out `for` loops e.g. apply methods or mapping
+
+
+## 4. Design for humans
+
+- Other people will read your code
+- Be considerate of others reading your code
+- Compute time is secondary to thinking time
+- Things to do:
+    - Invest time in good names
+    - Be explicit and possibly long with names
 
 
 ## Questions?
