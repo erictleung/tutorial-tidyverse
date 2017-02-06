@@ -1,5 +1,5 @@
 # Presentation file to be compiled
-FILE=tidy-purrr
+FILE=tidyverse
 
 # Create presentation
 $(FILE).html : $(FILE).Rmd
