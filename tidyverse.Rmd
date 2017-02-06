@@ -9,7 +9,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-library(purrr)
+library(tidyverse)
 ```
 
 ## Tidyverse {.columns-2}
