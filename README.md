@@ -20,7 +20,6 @@ make
 ## Packages within `tidyverse`
 
 - broom
-- DBI
 - dplyr
 - forcats
 - ggplot2
