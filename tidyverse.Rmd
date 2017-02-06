@@ -62,31 +62,6 @@ Website: http://r4ds.had.co.nz
 <img src="./images/cover.png" style="height: 70%; width: 80%">
 
 
-## Make R functions purrr with functional programming
-
-**Goal**:
-
-> "...allow you to break common list manipulation challenges into independent
-> pieces."
-
-**Functional Programming**
-
-> In computer science, functional programming is a programming paradigm—a style
-> of building the structure and elements of computer programs—that treats
-> computation as the evaluation of mathematical functions and avoids
-> changing-state and mutable data.
-
-
-## Overview of Functional
-
-**General Format**
-
-```r
-map(.x, .f, ...)
-map(VECTOR_OR_LIST_INPUT, FUNCTION_TO_APPLY, OPTIONAL_OTHER_STUFF)
-```
-
-
 ## Questions?
 
 <img src="./images/rstudio-hex-purrr.png" style="height: auto; width: 25%">
