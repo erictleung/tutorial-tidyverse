@@ -1,14 +1,13 @@
-# tutorial-tidy-purrr
+# tutorial-tidyverse
 
-Presentation on the tidyverse and functional programming in R using purrr
+Presentation on the tidyverse in R to clean and manipulate data
 
 
 ## Prerequisites
 
 - `R`
-- `purrr` (main package demonstration for presentation)
 - `rmarkdown` (to compile presentation)
-- `repurrrsive` (for nested lists data)
+- `tidyverse`
 
 
 ## Compile Presentation
