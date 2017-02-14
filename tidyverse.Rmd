@@ -1,15 +1,14 @@
 ---
-title: "Using tidyverse to clean and manipulate data"
-author: "Eric Leung"
+title: "From Messy to Tidy: Intro to Data Carpentry in R"
+author: "Eric Leung and Ted Laderas"
 date: "February 16th, 2017"
 output:
   ioslides_presentation:
     highlight: pygments
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-library(tidyverse)
+```{r}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 ```
 
 ## Tidyverse {.columns-2}
