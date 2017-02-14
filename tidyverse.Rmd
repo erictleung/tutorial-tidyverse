@@ -27,39 +27,9 @@ library(tidyverse)
 <img src="./images/tidy-logos.png" style="height: auto; width: 100%">
 
 
-## All 20 Imported Packages (`library()`) {.columns-2}
+## Workflow
 
-### Part 1
-
-- `broom`
-- `dplyr` (H, RStudio)
-- `forcats` (H, RStudio)
-- `ggplot2` (H, RStudio)
-- `haven` (H, RStudio)
-- `httr` (H, RStudio)
-- `hms`
-- `jsonlite`
-- `lubridate` (H)
-
-### Part 2
-
-- `magrittr` (H)
-- `modelr` (H, RStudio)
-- `purrr` (H, RStudio)
-- `readr` (H, RStudio)
-- `readxl` (H, RStudio)
-- `stringr` (H, RStudio)
-- `tibble` (H, RStudio)
-- `rvest` (H, RStudio)
-- `tidyr` (H, RStudio)
-- `xml2` (H, RStudio)
-
-
-## R for Data Science {.columns-2}
-
-Website: http://r4ds.had.co.nz
-
-<img src="./images/cover.png" style="height: 70%; width: 80%">
+![Data science exploration general workflow](./images/data-science-explore.png)
 
 
 ## Four Basic Principles to Tidyverse
@@ -106,6 +76,40 @@ https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
 - Things to do:
     - Invest time in good names
     - Be explicit and possibly long with names
+
+
+## Tidyverse Part 1
+
+- `broom` (convert statistical objects to tidy data)
+- `dplyr` (easily tidy data)
+- `forcats` (work with categorical variables)
+- `ggplot2` (create elegant data visualizations)
+- `haven` (import and export SPSS, Stata, and SAS)
+- `httr` (work with URLs and HTTP)
+- `hms` (pretty time of day)
+- `jsonlite` (robust JSON parser)
+- `lubridate` (deal with dates easier)
+
+## Tidyverse Part 2
+
+- `magrittr` (pipe) +
+- `modelr` (modeling functions)
+- `purrr` (functional programming)
+- `readr` (read tabular data)
+- `readxl` (read Excel data)
+- `stringr` (manipulate strings)
+- `tibble` (simple data frames)
+- `rvest` (web scrapping tools)
+- `tidyr` (easily tidy data)
+- `xml2` (parse XML files)
+
+
+## R for Data Science {.columns-2}
+
+Website: http://r4ds.had.co.nz
+
+
+<img src="./images/cover.png" style="height: 70%; width: 80%">
 
 
 ## Questions?
