@@ -19,25 +19,25 @@ make
 
 ## Packages within `tidyverse`
 
-- broom
-- dplyr
-- forcats
-- ggplot2
-- haven
-- httr
-- hms
-- jsonlite
-- lubridate
-- magrittr
-- modelr
-- purrr
-- readr
-- readxl
-- stringr
-- tibble
-- rvest
-- tidyr
-- xml2
+- `broom` (convert statistical objects to tidy data)
+- `dplyr` (easily tidy data)
+- `forcats` (work with categorical variables)
+- `ggplot2` (create elegant data visualizations)
+- `haven` (import and export SPSS, Stata, and SAS)
+- `httr` (work with URLs and HTTP)
+- `hms` (pretty time of day)
+- `jsonlite` (robust JSON parser)
+- `lubridate` (deal with dates easier)
+- `magrittr` (pipe character)
+- `modelr` (modeling functions)
+- `purrr` (functional programming)
+- `readr` (read tabular data)
+- `readxl` (read Excel data)
+- `stringr` (manipulate strings)
+- `tibble` (simple data frames)
+- `rvest` (web scrapping tools)
+- `tidyr` (easily tidy data)
+- `xml2` (parse XML files)
 
 
 ## Repository Structure
