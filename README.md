@@ -5,6 +5,7 @@ Presentation on the tidyverse in R to clean and manipulate data
 **Table of Contents**
 
 - [Prerequisites](#prerequisites)
+- [About Data](#about-data)
 - [Compile Presentation](#compile-presentation)
 - [Packages within `tidyverse`](#packages-within-tidyverse)
 - [Repository Structure](#repository-structure)
@@ -16,6 +17,15 @@ Presentation on the tidyverse in R to clean and manipulate data
 - `R`
 - `rmarkdown` (to compile presentation)
 - `tidyverse`
+
+
+## About Data
+
+Data is a modified version found on [\@laderast][ted]'s workshop on exploratory
+data analysis, [ShinyEDA][shinyeda].
+
+[ted]: https://github.com/laderast
+[shinyeda]: https://github.com/laderast/shinyEDA
 
 
 ## Compile Presentation
