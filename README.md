@@ -21,7 +21,7 @@ Presentation on the tidyverse in R to clean and manipulate data
 
 ## About Data
 
-Data is a modified version found on [\@laderast][ted]'s workshop on exploratory
+Data is a modified version found on [@laderast][ted]'s workshop on exploratory
 data analysis, [ShinyEDA][shinyeda].
 
 [ted]: https://github.com/laderast
