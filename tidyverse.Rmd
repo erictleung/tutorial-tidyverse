@@ -80,7 +80,7 @@ library(tidyverse) # Import tidyverse
 ```{r Read in data}
 # Using the readxl package to read in Excel files
 library(readxl)
-rawData <- read_excel(path = "data/all_data.xlsx")
+rawData <- read_excel(path = "data/all_data.xlsx", sheet = 2, skip = 1)
 ```
 
 
