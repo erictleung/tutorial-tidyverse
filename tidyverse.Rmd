@@ -4,6 +4,7 @@ author: "Eric Leung and Ted Laderas"
 date: "February 16th, 2017"
 output:
   ioslides_presentation:
+    fig_caption: yes
     highlight: pygments
 ---
 
@@ -18,17 +19,61 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 - `ggplot2` (graphics)
 - `tibble` (data frames and tables)
 - `tidyr` (make tidy)
-- `readr` (read in formats)
+- `readr` (read in tabular formats)
 - `purrr` (functional programming)
 - `dplyr` (manipulate data)
-
 
 <img src="./images/tidy-logos.png" style="height: auto; width: 100%">
 
 
-## Workflow
+## Overall Workflow
 
-![Data science exploration general workflow](./images/data-science-explore.png)
+![Data science exploration general workflow](./images/data-science.png)
+
+We'll follow this workflow with a use case of reading in an Excel document,
+cleaning it up, and visualizing it.
+
+```{r Import tidyverse}
+library(tidyverse) # Import tidyverse
+```
+
+
+## Read in Data
+
+![Import and wrangle data](./images/data-science-wrangle.png)
+
+
+## Sample Dataset A
+
+![Dataset A](./images/datasetA.png)
+
+
+## Sample Dataset B
+
+![Dataset B](./images/datasetB.png)
+
+
+## Let's Read in the Data
+
+```{r Read in data}
+# Using the readxl package to read in Excel files
+library(readxl)
+rawData <- read_excel(path = "data/all_data.xlsx")
+```
+
+
+## Take a Look at the Data
+
+```{r}
+head(rawData) # Tibble shows small bit of the data
+```
+
+
+## Another Way to Look at Data
+
+```{r}
+rawData
+```
 
 
 ## Four Basic Principles to Tidyverse
