@@ -2,6 +2,14 @@
 
 Presentation on the tidyverse in R to clean and manipulate data
 
+**Table of Contents**
+
+- [Prerequisites](#prerequisites)
+- [Compile Presentation](#compile-presentation)
+- [Packages within `tidyverse`](#packages-within-tidyverse)
+- [Repository Structure](#repository-structure)
+- [License](#license)
+
 
 ## Prerequisites
 
