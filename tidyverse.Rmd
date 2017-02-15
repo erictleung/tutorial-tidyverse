@@ -76,10 +76,20 @@ rawData
 ```
 
 
+## Start Exploring the Data!
+
+![](./images/data-science-explore.png)
+
+
+## Visualize and Communicate Findings
+
+![](./images/data-science-communicate.png)
+
+
 ## Four Basic Principles to Tidyverse
 
 1. Reuse existing data structures
-2. Compose simple functions with the pipe
+2. Make simple function
 3. Embrace functional programming
 4. Design for humans
 
@@ -89,12 +99,22 @@ https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
 
 ## 1. Reuse existing data structures
 
+1. **Reuse existing data structures**
+2. Make simple functions
+3. Embrace functional programming
+4. Design for humans
+
 - Re-use pre-existing data structures
 - Many packages (e.g. ggplot2, dplyr) use rectangular data
 - Use data frames or tibbles
 
 
-## 2. Compose simple functions with the pipe
+## 2. Make simple functions
+
+1. Reuse existing data structures
+2. **Make simple functions**
+3. Embrace functional programming
+4. Design for humans
 
 - The pipe character in R is `%>%`
 - Functions should be "simple" and do one thing well
@@ -106,6 +126,12 @@ https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
 
 ## 3. Embrace functional programming
 
+
+1. Reuse existing data structures
+2. Make simple functions
+3. **Embrace functional programming**
+4. Design for humans
+
 - R is a functional language
 - Immutable objects == objects that don't change
 - In other words, if you want to make changes, do a copy-on-modify
@@ -113,6 +139,11 @@ https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
 
 
 ## 4. Design for humans
+
+1. Reuse existing data structures
+2. Compose simple functions with the pipe
+3. Embrace functional programming
+4. **Design for humans**
 
 - Other people will read your code
 - Be considerate of others reading your code
@@ -136,7 +167,7 @@ https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
 
 ## Tidyverse Part 2
 
-- `magrittr` (pipe) +
+- `magrittr` (pipe)
 - `modelr` (modeling functions)
 - `purrr` (functional programming)
 - `readr` (read tabular data)
