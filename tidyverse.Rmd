@@ -80,7 +80,10 @@ library(tidyverse) # Import tidyverse
 ```{r Read in data}
 # Using the readxl package to read in Excel files
 library(readxl)
-rawData <- read_excel(path = "data/all_data.xlsx", sheet = 2, skip = 1)
+rawData <- read_excel(path = "data/all_data.xlsx", # Path to file
+                    sheet = 2, # We want the second sheet
+                    skip = 1, # Skip the first row
+                    na = "NA") # Missing characters are "NA"
 ```
 
 
