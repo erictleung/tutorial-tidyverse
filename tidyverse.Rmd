@@ -102,10 +102,8 @@ rawData
 
 ![](./images/data-science-explore.png)
 
-
-## Visualize and Communicate Findings
-
 ![](./images/data-science-communicate.png)
+
 
 
 ## Four Basic Principles to Tidyverse
