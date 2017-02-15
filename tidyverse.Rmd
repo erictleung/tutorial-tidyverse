@@ -27,6 +27,9 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 3. One table for each "kind" of variable
 4. Multiple tables should have an identifier column to let you join them together.
 
+<img src="./images/tidy-data.png" style="height: 70%; width: 80%">
+
+
 ## Why Tidy Data?
 
 
