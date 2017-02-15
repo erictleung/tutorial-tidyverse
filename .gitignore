@@ -34,3 +34,4 @@ vignettes/*.pdf
 
 # Ignore compiled HTML presentation
 *.html
+.Rproj.user

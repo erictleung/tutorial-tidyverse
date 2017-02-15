@@ -1,6 +1,6 @@
 ---
 title: "Using tidyverse to clean and manipulate data"
-author: "Eric Leung"
+author: "Eric Leung and Ted Laderas"
 date: "February 16th, 2017"
 output:
   ioslides_presentation:
@@ -11,6 +11,25 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 ```
+
+## Overview
+
+  - What is Tidy Data?
+  - A Simple Example: Going from Excel to Tidy Data to Plotting
+  - The Tidyverse: Verbs for Data manipulation
+
+## What is Tidy Data?
+
+[According to Jeff Leek](https://leanpub.com/datastyle), Tidy data has the following properties:
+
+1. Each variable should have its own column.
+2. Each observation of that variable should be in its own row
+3. One table for each "kind" of variable
+4. Multiple tables should have an identifier column to let you join them together.
+
+## Why Tidy Data?
+
+
 
 ## Tidyverse {.columns-2}
 
