@@ -1,8 +1,10 @@
 ---
-title: "From Messy to Tidy: Intro to Data Carpentry in R"
+title: 'From Messy to Tidy: Intro to Data Carpentry in R'
 author: "Eric Leung and Ted Laderas"
 date: "February 16th, 2017"
 output:
+  slidy_presentation:
+    highlight: pygments
   ioslides_presentation:
     fig_height: 4
     fig_width: 6
@@ -19,7 +21,7 @@ output:
 ## What is Tidy Data?
 
 ```{r message=FALSE, warning=FALSE,echo=FALSE}
-library(kable)
+# library(kable)
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 ```
 
@@ -189,10 +191,9 @@ Note that any statement or function that produces a boolean vector (such as `is.
 `select()` lets you select columns in your dataset. You can also rename them by passing in the new name as an equals statement:
 
 ```{r}
-
 selectedData <- filteredData %>% 
   # Rename patientID to patient, select startWeight, endWeight, diffWeight
-  select(patient=subject, startWeight, endWeight)
+  select(patient = subject, startWeight, endWeight)
 
 head(selectedData) 
 ```
@@ -208,7 +209,7 @@ mutatedData <- rawData %>%
 mutatedData[1:4, ] %>% select(startWeight, endWeight, diffWeight)
 ```
 
-## dplyr::mutate()
+## `dplyr::mutate()`
 
 Once you've defined a new column with `mutate()`, you can use it just like any other variable:
 
@@ -236,7 +237,8 @@ Now, we have clean data. How can we calculate summaries such as means and standa
 
 ```{r}
 summarizedData <- cleanData %>% group_by(treatment) %>%
-  summarize(meanLoss=mean(weightChangePerDay), sdLoss=sd(weightChangePerDay))
+  summarize(meanLoss = mean(weightChangePerDay, na.rm = TRUE),
+            sdLoss = sd(weightChangePerDay, na.rm = TRUE))
 
 summarizedData
 ```
@@ -373,7 +375,16 @@ Website: http://r4ds.had.co.nz
 
 <img src="./images/rstudio-hex-purrr.png" style="height: auto; width: 25%">
 
-# Principles of the tidyverse (for those who want to know)
+## Principles of the tidyverse (for those who want to know)
+
+1. Reuse existing data structures
+2. Make simple function
+3. Embrace functional programming
+4. Design for humans
+
+**Source**:
+
+https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
 
 ## 1. Reuse existing data structures
 
