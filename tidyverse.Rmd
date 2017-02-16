@@ -9,9 +9,6 @@ output:
     highlight: pygments
 ---
 
-```{r}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE)
-```
 
 ## Overview
 
@@ -20,6 +17,11 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
   - The Tidyverse: Verbs for Data manipulation
 
 ## What is Tidy Data?
+
+```{r message=FALSE, warning=FALSE,echo=FALSE}
+library(kable)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
 
 [According to Jeff Leek](https://leanpub.com/datastyle), tidy data has the following properties:
 
