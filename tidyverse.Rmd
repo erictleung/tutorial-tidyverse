@@ -124,7 +124,7 @@ Let's look at a typical tidyverse operation.
 
 ```{r}
 cleanData <- rawData %>% 
-  filter(gender == "female") %>% 
+  filter(gender == "male") %>% 
   mutate(diffWeight = startWeight - endWeight, 
          weightChangePerDay = diffWeight / timeElapsed)
 
@@ -135,11 +135,15 @@ We'll take this apart bit by bit.
 
 ## Pipes let you go from start to finish.
 
-The first thing to notice is the `%>%` character. This is called a "pipe" character. It lets you take the output of one function and make it the input of another function.
+The first thing to notice is the `%>%` character. This is called a "pipe" character. 
+
+It lets you take the output of one function and make it the input of another function.
 
 When you chain multiple functions together, you are building a pipeline.
 
-## Some basic verbs for data
+## Some basic verbs for manipulating data
+
+The nice thing about the tidyverse is that most of the functions are defined as verbs that you do to data.
 
 - `filter()` - remove rows according to a criteria
 - `select()` - select columns by name
@@ -157,7 +161,7 @@ filteredData <- rawData %>%
 head(filteredData)
 ```
 
-How would we filter the dataset for patients who have 
+How would we also filter the dataset for patients who had startWeights greater than 150?
 
 Note that any statement or function that produces a boolean vector (such as `is.na(Species)`) can be used here.
 
@@ -166,7 +170,6 @@ Note that any statement or function that produces a boolean vector (such as `is.
 `select()` lets you select columns in your dataset.
 
 ```{r}
-library(dplyr)
 newIris <- iris %>% select(Sepal.Width, Species)
 
 head(newIris)
@@ -177,18 +180,29 @@ head(newIris)
 `mutate()` is one of the most useful dplyr commands. You can use it to transform data and add it as a new column into the data.frame
 
 ```{r}
-library(dplyr)
-newIris <- iris %>% mutate(sepalSum = Sepal.Length + Sepal.Width)
+#calculate a new variable based on other variables
+mutatedData <- rawData %>% 
+  mutate(diffWeight = startWeight - endWeight) 
 
-head(newIris)
+head(mutatedData)
 
 #add a column with the same value for each entry
-newIris <- newIris %>% mutate(value = "Site1")
+mutatedData <- mutatedData %>% mutate(site = "Site1")
 
-head(newIris)
+head(mutatedData)
 ```
 
+## Chaining it all together with pipes
 
+## Reformatting Data
+
+## Reshaping Data
+
+Oftentimes, you will need to change the format of the data.
+
+
+
+## Now What?
 
 ## Start Exploring the Data!
 
