@@ -170,11 +170,15 @@ The nice thing about the tidyverse is that most of the functions are defined as 
 
 `filter()` lets you select rows according to a criteria. You can use `|` (OR) and `&` (AND) to chain together logical statements.
 
-```{r message=FALSE}
-filteredData <- rawData %>% 
-  filter(gender == "male")
+```{r}
+filteredData <- rawData %>%
+  filter(gender == "Male")
+```
 
-head(filteredData)
+## dplyr::filter()
+
+```{r message=FALSE}
+filteredData[1:4, ] # Filtered for just "Male"
 ```
 
 How would we also filter the dataset for patients who had `startWeights` greater than 150?
@@ -188,28 +192,39 @@ Note that any statement or function that produces a boolean vector (such as `is.
 ```{r}
 newIris <- iris %>% select(Sepal.Width, Species)
 
-head(newIris)
+head(newIris) # Only Sepal.Width and Species columns
 ```
 
 ## dplyr::mutate()
 
-`mutate()` is one of the most useful dplyr commands. You can use it to transform data and add it as a new column into the data.frame. 
+`mutate()` is one of the most useful dplyr commands. You can use it to transform data and add it as a new column into the `data.frame`.
 
 ```{r}
-#calculate a new variable based on other variables
-mutatedData <- rawData %>% 
-  mutate(diffWeight = startWeight - endWeight) 
+# Calculate a new variable based on other variables
+mutatedData <- rawData %>%
+  mutate(diffWeight = startWeight - endWeight)
+mutatedData[1:4, ] %>% select(startWeight, endWeight, diffWeight)
+```
 
-head(mutatedData)
+## dplyr::mutate()
 
-#add a column with the same value for each entry
-mutatedData <- mutatedData %>% mutate(site = "Site1") %>% 
-  mutate(weightLossPerDay = diffWeight / timeElapsed )
+```{r}
+# Add a column with the same value for each entry
+mutatedData <- mutatedData %>% mutate(site = "Site1") %>%
+  mutate(weightLossPerDay = diffWeight / timeElapsed)
 
 head(mutatedData)
 ```
 
 ## Chaining it all together with pipes
+
+```{r}
+cleanData <- rawData %>%
+  filter(gender == "Male") %>%
+  mutate(diffWeight = startWeight - endWeight,
+         weightChangePerDay = diffWeight / timeElapsed)
+head(cleanData)
+```
 
 ## Reformatting Data
 
@@ -226,7 +241,6 @@ Oftentimes, you will need to change the format of the data.
 ![](./images/data-science-explore.png)
 
 ![](./images/data-science-communicate.png)
-
 
 
 ## Four Basic Principles to Tidyverse
@@ -307,6 +321,7 @@ https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
 - `hms` (pretty time of day)
 - `jsonlite` (robust JSON parser)
 - `lubridate` (deal with dates easier)
+
 
 ## Tidyverse Part 2
 
