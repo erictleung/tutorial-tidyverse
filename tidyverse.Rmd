@@ -20,14 +20,20 @@ library(tidyverse)
 
 ## What is Tidy Data?
 
-[According to Jeff Leek](https://leanpub.com/datastyle), Tidy data has the following properties:
+[According to Jeff Leek](https://leanpub.com/datastyle), tidy data has the following properties:
 
 1. Each variable should have its own column.
 2. Each observation of that variable should be in its own row
 3. One table for each "kind" of variable
+  - Microarray Data
+  - Sample Table & Demographics
 4. Multiple tables should have an identifier column to let you join them together.
 
 ## Why Tidy Data?
+
+In short, most R packages expect tidy data in one form or another. 
+
+##Long versus Wide Data
 
 
 
