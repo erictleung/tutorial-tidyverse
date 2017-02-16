@@ -295,6 +295,8 @@ Oftentimes, you will need to change the format of the data. This might include:
 
 The `tidyr` package is meant for these operations. We can't cover them all today, but they are covered on the cheatsheet. 
 
+![](./images/reshapingdata.png)
+
 ## Four Basic Principles to Tidyverse
 
 1. Reuse existing data structures
@@ -348,6 +350,9 @@ Website: http://r4ds.had.co.nz
 
 ## Resources
 
+This tutorial has used these resources. If you're interested, we encourage you to read up and learn more! This is only the tip of the iceberg.
+
+  - This tutorial: https://github.com/erictleung/tutorial-tidyverse
   - Hadley Wickham's paper on Tidy Data: https://www.jstatsoft.org/article/view/v059i10
   - Data Wrangling Cheatsheet: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
   - An intro tutorial to ggplot2: https://github.com/laderast/ggplot2-intro
