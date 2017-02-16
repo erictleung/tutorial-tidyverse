@@ -33,5 +33,5 @@ vignettes/*.pdf
 *.knit.md
 
 # Ignore compiled HTML presentation
-*.html
+#*.html
 .Rproj.user

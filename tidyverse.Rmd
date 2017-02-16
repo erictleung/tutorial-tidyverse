@@ -285,7 +285,18 @@ cleanData %>% ggplot(aes(x = age, y = diffWeight,
     geom_point() + facet_wrap(~ staffID1)
 ```
 
-## Reshaping Data
+## Where to go next?
+
+Once you have tidy data, the world of R is your oyster. There's lots of ways to go from here.
+
+- Many many more ways to plot/visualize - `ggplot2`
+- Other ways to load tabular data (such as tab-delimited or csv files) - `readr`
+- Reshaping data - `tidyr`
+- Machine Learning (many many r packages)
+- Interactive Visualizations (`shiny`)
+
+
+## A Note on Reshaping Data
 
 Oftentimes, you will need to change the format of the data. This might include:
 
@@ -334,20 +345,6 @@ https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
 - `tidyr` (easily tidy data)
 - `xml2` (parse XML files)
 
-
-## R for Data Science {.columns-2}
-
-Website: http://r4ds.had.co.nz
-
-
-<img src="./images/cover.png" style="height: 70%; width: 80%">
-
-
-## Questions?
-
-<img src="./images/rstudio-hex-purrr.png" style="height: auto; width: 25%">
-
-
 ## Resources
 
 This tutorial has used these resources. If you're interested, we encourage you to read up and learn more! This is only the tip of the iceberg.
@@ -356,7 +353,7 @@ This tutorial has used these resources. If you're interested, we encourage you t
   - Hadley Wickham's paper on Tidy Data: https://www.jstatsoft.org/article/view/v059i10
   - Data Wrangling Cheatsheet: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
   - An intro tutorial to ggplot2: https://github.com/laderast/ggplot2-intro
-  - Data Visualization Class with Allison Hill, Steve Bedrick, and Jackie Wirz: http://cslu.ohsu.edu/~bedricks/courses/cs631/
+  - Data Visualization Class with Allison Hill, Steve Bedrick, Ted, and Jackie Wirz: http://cslu.ohsu.edu/~bedricks/courses/cs631/
 
 - https://jennybc.github.io/purrr-tutorial/index.html
 - https://github.com/tidyverse/tidyverse
@@ -364,6 +361,17 @@ This tutorial has used these resources. If you're interested, we encourage you t
 - http://docs.ggplot2.org/current/
 
 
+## R for Data Science {.columns-2}
+
+Website: http://r4ds.had.co.nz
+
+<img src="./images/cover.png" style="height: 70%; width: 80%">
+
+## Questions?
+
+<img src="./images/rstudio-hex-purrr.png" style="height: auto; width: 25%">
+
+# Principles of the tidyverse (for those who want to know)
 
 ## 1. Reuse existing data structures
 
