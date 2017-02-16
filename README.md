@@ -62,17 +62,29 @@ make
 
 ```
 .
-├── Makefile
-├── R
-│   └── broom.R
-├── README.md
+├── data
+│   └── all_data.xlsx
 ├── images
 │   ├── cover.png
+│   ├── data-science-communicate.png
+│   ├── data-science-explore.png
+│   ├── data-science.png
+│   ├── data-science-wrangle.png
+│   ├── datasetA.png
+│   ├── datasetB.png
 │   ├── rstudio-hex-purrr.png
+│   ├── tidy-data.png
 │   └── tidy-logos.png
-└── tidyverse.Rmd
+├── Makefile
+├── R
+│   ├── broom.R
+│   └── purrr.R
+├── README.md
+├── tidyverse.html
+├── tidyverse.Rmd
+└── tutorial-tidyverse.Rproj
 
-2 directories, 7 files
+3 directories, 18 files
 ```
 
 
