@@ -167,18 +167,14 @@ The nice thing about the tidyverse is that most of the functions are defined as 
 - `mutate()` - calculate new column variables by manipulating data
 - `arrange()` - sort data by columns
 
-## dplyr::filter()
+## `dplyr::filter()`
 
 `filter()` lets you select rows according to a criteria. You can use `|` (OR) and `&` (AND) to chain together logical statements.
 
-```{r}
+```{r message=FALSE}
 filteredData <- rawData %>%
   filter(gender == "Male")
-```
 
-## dplyr::filter()
-
-```{r message=FALSE}
 filteredData[1:4, ] # Filtered for just "Male"
 ```
 
@@ -186,17 +182,20 @@ How would we also filter the dataset for patients who had `startWeights` greater
 
 Note that any statement or function that produces a boolean vector (such as `is.na(Species)`) can be used here.
 
-## dplyr::select()
+## `dplyr::select()`
 
-`select()` lets you select columns in your dataset.
+`select()` lets you select columns in your dataset. You can also rename them by passing in the new name as an equals statement:
 
 ```{r}
-newIris <- iris %>% select(Sepal.Width, Species)
 
-head(newIris) # Only Sepal.Width and Species columns
+selectedData <- filteredData %>% 
+  # Rename patientID to patient, select startWeight, endWeight, diffWeight
+  select(patient=subject, startWeight, endWeight)
+
+head(selectedData) 
 ```
 
-## dplyr::mutate()
+## `dplyr::mutate()`
 
 `mutate()` is one of the most useful dplyr commands. You can use it to transform data and add it as a new column into the `data.frame`.
 
@@ -208,6 +207,8 @@ mutatedData[1:4, ] %>% select(startWeight, endWeight, diffWeight)
 ```
 
 ## dplyr::mutate()
+
+Once you've defined a new column with `mutate()`, you can use it just like any other variable:
 
 ```{r}
 # Add a column with the same value for each entry
@@ -227,15 +228,19 @@ cleanData <- rawData %>%
 head(cleanData)
 ```
 
-## Reformatting Data
+## Summarizing Data
 
-## Reshaping Data
+Now, we have clean data. How can we calculate summaries such as means and standard deviations by treatment?
 
-Oftentimes, you will need to change the format of the data.
+```{r}
+summarizedData <- cleanData %>% group_by(treatment) %>%
+  summarize(meanLoss=mean(weightChangePerDay), sdLoss=sd(weightChangePerDay))
 
+summarizedData
+```
 
+In order to do this we use two functions here: `group_by()` and `summarize()`. You can think of `group_by` as separating the data out into smaller data.frames (separated by the variable), and then with `summarize`, we perform an operation on them
 
-## Now What?
 
 ## Start Exploring the Data!
 
@@ -247,6 +252,8 @@ Oftentimes, you will need to change the format of the data.
 ## Look at data using ggplot2
 
 Start with data set and `ggplot`, add "aesthetic mapping" and then more customization.
+
+Aesthetic Mappings: Where you map visual properties to different variables in the data.
 
 ```{r}
 cleanData %>% ggplot(aes(x = age, y = diffWeight)) + geom_point()
@@ -278,6 +285,15 @@ cleanData %>% ggplot(aes(x = age, y = diffWeight,
     geom_point() + facet_wrap(~ staffID1)
 ```
 
+## Reshaping Data
+
+Oftentimes, you will need to change the format of the data. This might include:
+
+  - Grouping multiple columns into a single column (`tidyr::gather()`)
+  - Ungrouping a column into multiple columns (`tidyr::separate()`)
+  - Taking rows and making them columns (`tidyr::spread()`)
+
+The `tidyr` package is meant for these operations. We can't cover them all today, but they are covered on the cheatsheet. 
 
 ## Four Basic Principles to Tidyverse
 
@@ -289,6 +305,60 @@ cleanData %>% ggplot(aes(x = age, y = diffWeight,
 **Source**:
 
 https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
+
+## Tidyverse Part 1
+
+- `broom` (convert statistical objects to tidy data)
+- `dplyr` (easily tidy data)
+- `forcats` (work with categorical variables)
+- `ggplot2` (create elegant data visualizations)
+- `haven` (import and export SPSS, Stata, and SAS)
+- `httr` (work with URLs and HTTP)
+- `hms` (pretty time of day)
+- `jsonlite` (robust JSON parser)
+- `lubridate` (deal with dates easier)
+
+
+## Tidyverse Part 2
+
+- `magrittr` (pipe)
+- `modelr` (modeling functions)
+- `purrr` (functional programming)
+- `readr` (read tabular data)
+- `readxl` (read Excel data)
+- `stringr` (manipulate strings)
+- `tibble` (simple data frames)
+- `rvest` (web scrapping tools)
+- `tidyr` (easily tidy data)
+- `xml2` (parse XML files)
+
+
+## R for Data Science {.columns-2}
+
+Website: http://r4ds.had.co.nz
+
+
+<img src="./images/cover.png" style="height: 70%; width: 80%">
+
+
+## Questions?
+
+<img src="./images/rstudio-hex-purrr.png" style="height: auto; width: 25%">
+
+
+## Resources
+
+  - Hadley Wickham's paper on Tidy Data: https://www.jstatsoft.org/article/view/v059i10
+  - Data Wrangling Cheatsheet: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
+  - An intro tutorial to ggplot2: https://github.com/laderast/ggplot2-intro
+  - Data Visualization Class with Allison Hill, Steve Bedrick, and Jackie Wirz: http://cslu.ohsu.edu/~bedricks/courses/cs631/
+
+- https://jennybc.github.io/purrr-tutorial/index.html
+- https://github.com/tidyverse/tidyverse
+- https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
+- http://docs.ggplot2.org/current/
+
+
 
 ## 1. Reuse existing data structures
 
@@ -345,50 +415,3 @@ https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
     - Invest time in good names
     - Be explicit and possibly long with names
 
-
-## Tidyverse Part 1
-
-- `broom` (convert statistical objects to tidy data)
-- `dplyr` (easily tidy data)
-- `forcats` (work with categorical variables)
-- `ggplot2` (create elegant data visualizations)
-- `haven` (import and export SPSS, Stata, and SAS)
-- `httr` (work with URLs and HTTP)
-- `hms` (pretty time of day)
-- `jsonlite` (robust JSON parser)
-- `lubridate` (deal with dates easier)
-
-
-## Tidyverse Part 2
-
-- `magrittr` (pipe)
-- `modelr` (modeling functions)
-- `purrr` (functional programming)
-- `readr` (read tabular data)
-- `readxl` (read Excel data)
-- `stringr` (manipulate strings)
-- `tibble` (simple data frames)
-- `rvest` (web scrapping tools)
-- `tidyr` (easily tidy data)
-- `xml2` (parse XML files)
-
-
-## R for Data Science {.columns-2}
-
-Website: http://r4ds.had.co.nz
-
-
-<img src="./images/cover.png" style="height: 70%; width: 80%">
-
-
-## Questions?
-
-<img src="./images/rstudio-hex-purrr.png" style="height: auto; width: 25%">
-
-
-## Resources
-
-- https://jennybc.github.io/purrr-tutorial/index.html
-- https://github.com/tidyverse/tidyverse
-- https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
-- http://docs.ggplot2.org/current/
