@@ -121,23 +121,41 @@ rawData
 Let's look at a typical tidyverse operation. 
 
 ```{r}
-cleanData <- rawData %>% 
-  filter(gender == "male") %>% 
-  mutate(diffWeight = startWeight - endWeight, 
+cleanData <- rawData %>%
+  filter(gender == "Male") %>%
+  mutate(diffWeight = startWeight - endWeight,
          weightChangePerDay = diffWeight / timeElapsed)
-
-#show data
 ```
 
 We'll take this apart bit by bit.
 
-## Pipes let you go from start to finish.
+## Take a Look at the transformed data
+
+```{r}
+# We filtered for "Males" and "mutated" some data
+cleanData
+```
+
+## Pipes let you go from start to finish
+
+```{r, eval=FALSE}
+# Reminder of what we did
+cleanData <- rawData %>%
+  filter(gender == "Male") %>%
+  mutate(diffWeight = startWeight - endWeight,
+         weightChangePerDay = diffWeight / timeElapsed)
+```
 
 The first thing to notice is the `%>%` character. This is called a "pipe" character. 
 
 It lets you take the output of one function and make it the input of another function.
 
-When you chain multiple functions together, you are building a pipeline.
+```{r, eval=FALSE}
+cleanData <- rawData %>%
+  filter(gender == "Male")
+```
+
+When you chain multiple functions together, you are building a **pipeline**.
 
 ## Some basic verbs for manipulating data
 
