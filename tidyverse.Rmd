@@ -24,9 +24,7 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 
 1. Each variable should have its own column.
 2. Each observation of that variable should be in its own row
-3. One table for each "kind" of variable
-  - Microarray Data
-  - Sample Table & Demographics
+3. One table for each "kind" of variable (microarray data, sample table & demographics)
 4. Multiple tables should have an identifier column to let you join them together.
 
 <img src="./images/tidy-data.png" style="height: 70%; width: 80%">
@@ -161,7 +159,7 @@ filteredData <- rawData %>%
 head(filteredData)
 ```
 
-How would we also filter the dataset for patients who had startWeights greater than 150?
+How would we also filter the dataset for patients who had `startWeights` greater than 150?
 
 Note that any statement or function that produces a boolean vector (such as `is.na(Species)`) can be used here.
 
