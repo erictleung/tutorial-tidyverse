@@ -4,7 +4,8 @@ author: "Eric Leung and Ted Laderas"
 date: "February 16th, 2017"
 output:
   ioslides_presentation:
-    fig_caption: yes
+    fig_height: 4
+    fig_width: 6
     highlight: pygments
 ---
 
@@ -24,9 +25,7 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 
 1. Each variable should have its own column.
 2. Each observation of that variable should be in its own row
-3. One table for each "kind" of variable
-  - Microarray Data
-  - Sample Table & Demographics
+3. One table for each "kind" of variable (microarray data, sample table & demographics)
 4. Multiple tables should have an identifier column to let you join them together.
 
 <img src="./images/tidy-data.png" style="height: 70%; width: 80%">
@@ -123,23 +122,41 @@ rawData
 Let's look at a typical tidyverse operation. 
 
 ```{r}
-cleanData <- rawData %>% 
-  filter(gender == "male") %>% 
-  mutate(diffWeight = startWeight - endWeight, 
+cleanData <- rawData %>%
+  filter(gender == "Male") %>%
+  mutate(diffWeight = startWeight - endWeight,
          weightChangePerDay = diffWeight / timeElapsed)
-
-#show data
 ```
 
 We'll take this apart bit by bit.
 
-## Pipes let you go from start to finish.
+## Take a Look at the transformed data
+
+```{r}
+# We filtered for "Males" and "mutated" some data
+cleanData
+```
+
+## Pipes let you go from start to finish
+
+```{r, eval=FALSE}
+# Reminder of what we did
+cleanData <- rawData %>%
+  filter(gender == "Male") %>%
+  mutate(diffWeight = startWeight - endWeight,
+         weightChangePerDay = diffWeight / timeElapsed)
+```
 
 The first thing to notice is the `%>%` character. This is called a "pipe" character. 
 
 It lets you take the output of one function and make it the input of another function.
 
-When you chain multiple functions together, you are building a pipeline.
+```{r, eval=FALSE}
+cleanData <- rawData %>%
+  filter(gender == "Male")
+```
+
+When you chain multiple functions together, you are building a **pipeline**.
 
 ## Some basic verbs for manipulating data
 
@@ -154,14 +171,18 @@ The nice thing about the tidyverse is that most of the functions are defined as 
 
 `filter()` lets you select rows according to a criteria. You can use `|` (OR) and `&` (AND) to chain together logical statements.
 
-```{r message=FALSE}
-filteredData <- rawData %>% 
-  filter(gender == "male")
-
-head(filteredData)
+```{r}
+filteredData <- rawData %>%
+  filter(gender == "Male")
 ```
 
-How would we also filter the dataset for patients who had startWeights greater than 150?
+## dplyr::filter()
+
+```{r message=FALSE}
+filteredData[1:4, ] # Filtered for just "Male"
+```
+
+How would we also filter the dataset for patients who had `startWeights` greater than 150?
 
 Note that any statement or function that produces a boolean vector (such as `is.na(Species)`) can be used here.
 
@@ -172,28 +193,39 @@ Note that any statement or function that produces a boolean vector (such as `is.
 ```{r}
 newIris <- iris %>% select(Sepal.Width, Species)
 
-head(newIris)
+head(newIris) # Only Sepal.Width and Species columns
 ```
 
 ## dplyr::mutate()
 
-`mutate()` is one of the most useful dplyr commands. You can use it to transform data and add it as a new column into the data.frame. 
+`mutate()` is one of the most useful dplyr commands. You can use it to transform data and add it as a new column into the `data.frame`.
 
 ```{r}
-#calculate a new variable based on other variables
-mutatedData <- rawData %>% 
-  mutate(diffWeight = startWeight - endWeight) 
+# Calculate a new variable based on other variables
+mutatedData <- rawData %>%
+  mutate(diffWeight = startWeight - endWeight)
+mutatedData[1:4, ] %>% select(startWeight, endWeight, diffWeight)
+```
 
-head(mutatedData)
+## dplyr::mutate()
 
-#add a column with the same value for each entry
-mutatedData <- mutatedData %>% mutate(site = "Site1") %>% 
-  mutate(weightLossPerDay = diffWeight / timeElapsed )
+```{r}
+# Add a column with the same value for each entry
+mutatedData <- mutatedData %>% mutate(site = "Site1") %>%
+  mutate(weightLossPerDay = diffWeight / timeElapsed)
 
 head(mutatedData)
 ```
 
 ## Chaining it all together with pipes
+
+```{r}
+cleanData <- rawData %>%
+  filter(gender == "Male") %>%
+  mutate(diffWeight = startWeight - endWeight,
+         weightChangePerDay = diffWeight / timeElapsed)
+head(cleanData)
+```
 
 ## Reformatting Data
 
@@ -211,6 +243,40 @@ Oftentimes, you will need to change the format of the data.
 
 ![](./images/data-science-communicate.png)
 
+
+## Look at data using ggplot2
+
+Start with data set and `ggplot`, add "aesthetic mapping" and then more customization.
+
+```{r}
+cleanData %>% ggplot(aes(x = age, y = diffWeight)) + geom_point()
+```
+
+
+## More complex plotting
+
+```{r}
+cleanData %>% ggplot(aes(x = age, y = diffWeight,
+                         color = treatment)) +
+    geom_point()
+```
+
+
+## Let's look at differences in staff
+
+```{r}
+cleanData %>% ggplot(aes(x = age, y = diffWeight)) +
+    geom_point() + facet_wrap(~ staffID1)
+```
+
+
+## Staff and treatment differences
+
+```{r}
+cleanData %>% ggplot(aes(x = age, y = diffWeight,
+                         color = treatment)) +
+    geom_point() + facet_wrap(~ staffID1)
+```
 
 
 ## Four Basic Principles to Tidyverse
@@ -292,6 +358,7 @@ https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
 - `jsonlite` (robust JSON parser)
 - `lubridate` (deal with dates easier)
 
+
 ## Tidyverse Part 2
 
 - `magrittr` (pipe)
@@ -324,3 +391,4 @@ Website: http://r4ds.had.co.nz
 - https://jennybc.github.io/purrr-tutorial/index.html
 - https://github.com/tidyverse/tidyverse
 - https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
+- http://docs.ggplot2.org/current/
