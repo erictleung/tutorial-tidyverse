@@ -177,7 +177,7 @@ head(newIris)
 
 ## dplyr::mutate()
 
-`mutate()` is one of the most useful dplyr commands. You can use it to transform data and add it as a new column into the data.frame
+`mutate()` is one of the most useful dplyr commands. You can use it to transform data and add it as a new column into the data.frame. 
 
 ```{r}
 #calculate a new variable based on other variables
@@ -187,7 +187,8 @@ mutatedData <- rawData %>%
 head(mutatedData)
 
 #add a column with the same value for each entry
-mutatedData <- mutatedData %>% mutate(site = "Site1")
+mutatedData <- mutatedData %>% mutate(site = "Site1") %>% 
+  mutate(weightLossPerDay = diffWeight / timeElapsed )
 
 head(mutatedData)
 ```
