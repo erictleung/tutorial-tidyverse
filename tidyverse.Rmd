@@ -31,13 +31,18 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 
 <img src="./images/tidy-data.png" style="height: 70%; width: 80%">
 
-
 ## Why Tidy Data?
 
 In short, most R packages expect tidy data in one form or another. 
 
-##Long versus Wide Data
+Specifically: tidy data makes it easy to:
 
+- Manipulate into different forms (reshaping/summarizing)
+- Join with other tidy data
+- Visualize
+- Load into databases, etc.
+
+Much of my time as an analyst is getting my data into a form that I can analyse.
 
 
 ## Tidyverse {.columns-2}
@@ -53,6 +58,13 @@ In short, most R packages expect tidy data in one form or another.
 
 <img src="./images/tidy-logos.png" style="height: auto; width: 100%">
 
+## How do we get it?
+
+To get all the tidyverse packages, you can install it with a single command:
+
+```{r eval=FALSE}
+install.packages(tidyverse)
+```
 
 ## Overall Workflow
 
@@ -105,6 +117,77 @@ head(rawData) # Tibble shows small bit of the data
 ```{r}
 rawData
 ```
+
+## The Tidyverse is all about verbs and pipes
+
+Let's look at a typical tidyverse operation. 
+
+```{r}
+cleanData <- rawData %>% 
+  filter(gender == "female") %>% 
+  mutate(diffWeight = startWeight - endWeight, 
+         weightChangePerDay = diffWeight / timeElapsed)
+
+#show data
+```
+
+We'll take this apart bit by bit.
+
+## Pipes let you go from start to finish.
+
+The first thing to notice is the `%>%` character. This is called a "pipe" character. It lets you take the output of one function and make it the input of another function.
+
+When you chain multiple functions together, you are building a pipeline.
+
+## Some basic verbs for data
+
+- `filter()` - remove rows according to a criteria
+- `select()` - select columns by name
+- `mutate()` - calculate new column variables by manipulating data
+- `arrange()` - sort data by columns
+
+## dplyr::filter()
+
+`filter()` lets you select rows according to a criteria. You can use `|` (OR) and `&` (AND) to chain together logical statements.
+
+```{r message=FALSE}
+filteredData <- rawData %>% 
+  filter(gender == "male")
+
+head(filteredData)
+```
+
+How would we filter the dataset for patients who have 
+
+Note that any statement or function that produces a boolean vector (such as `is.na(Species)`) can be used here.
+
+## dplyr::select()
+
+`select()` lets you select columns in your dataset.
+
+```{r}
+library(dplyr)
+newIris <- iris %>% select(Sepal.Width, Species)
+
+head(newIris)
+```
+
+## dplyr::mutate()
+
+`mutate()` is one of the most useful dplyr commands. You can use it to transform data and add it as a new column into the data.frame
+
+```{r}
+library(dplyr)
+newIris <- iris %>% mutate(sepalSum = Sepal.Length + Sepal.Width)
+
+head(newIris)
+
+#add a column with the same value for each entry
+newIris <- newIris %>% mutate(value = "Site1")
+
+head(newIris)
+```
+
 
 
 ## Start Exploring the Data!
