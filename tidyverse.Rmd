@@ -4,7 +4,8 @@ author: "Eric Leung and Ted Laderas"
 date: "February 16th, 2017"
 output:
   ioslides_presentation:
-    fig_caption: yes
+    fig_height: 4
+    fig_width: 6
     highlight: pygments
 ---
 
@@ -243,6 +244,41 @@ Oftentimes, you will need to change the format of the data.
 ![](./images/data-science-communicate.png)
 
 
+## Look at data using ggplot2
+
+Start with data set and `ggplot`, add "aesthetic mapping" and then more customization.
+
+```{r}
+cleanData %>% ggplot(aes(x = age, y = diffWeight)) + geom_point()
+```
+
+
+## More complex plotting
+
+```{r}
+cleanData %>% ggplot(aes(x = age, y = diffWeight,
+                         color = treatment)) +
+    geom_point()
+```
+
+
+## Let's look at differences in staff
+
+```{r}
+cleanData %>% ggplot(aes(x = age, y = diffWeight)) +
+    geom_point() + facet_wrap(~ staffID1)
+```
+
+
+## Staff and treatment differences
+
+```{r}
+cleanData %>% ggplot(aes(x = age, y = diffWeight,
+                         color = treatment)) +
+    geom_point() + facet_wrap(~ staffID1)
+```
+
+
 ## Four Basic Principles to Tidyverse
 
 1. Reuse existing data structures
@@ -355,3 +391,4 @@ Website: http://r4ds.had.co.nz
 - https://jennybc.github.io/purrr-tutorial/index.html
 - https://github.com/tidyverse/tidyverse
 - https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
+- http://docs.ggplot2.org/current/
