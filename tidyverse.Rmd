@@ -1,15 +1,15 @@
 ---
-title: "Using tidyverse to clean and manipulate data"
+title: "From Messy to Tidy: Intro to Data Carpentry in R"
 author: "Eric Leung and Ted Laderas"
 date: "February 16th, 2017"
 output:
   ioslides_presentation:
+    fig_caption: yes
     highlight: pygments
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-library(tidyverse)
+```{r}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 ```
 
 ## Overview
@@ -29,6 +29,9 @@ library(tidyverse)
   - Sample Table & Demographics
 4. Multiple tables should have an identifier column to let you join them together.
 
+<img src="./images/tidy-data.png" style="height: 70%; width: 80%">
+
+
 ## Why Tidy Data?
 
 In short, most R packages expect tidy data in one form or another. 
@@ -44,53 +47,78 @@ In short, most R packages expect tidy data in one form or another.
 - `ggplot2` (graphics)
 - `tibble` (data frames and tables)
 - `tidyr` (make tidy)
-- `readr` (read in formats)
+- `readr` (read in tabular formats)
 - `purrr` (functional programming)
 - `dplyr` (manipulate data)
-
 
 <img src="./images/tidy-logos.png" style="height: auto; width: 100%">
 
 
-## All 20 Imported Packages (`library()`) {.columns-2}
+## Overall Workflow
 
-### Part 1
+![Data science exploration general workflow](./images/data-science.png)
 
-- `broom`
-- `dplyr` (H, RStudio)
-- `forcats` (H, RStudio)
-- `ggplot2` (H, RStudio)
-- `haven` (H, RStudio)
-- `httr` (H, RStudio)
-- `hms`
-- `jsonlite`
-- `lubridate` (H)
+We'll follow this workflow with a use case of reading in an Excel document,
+cleaning it up, and visualizing it.
 
-### Part 2
-
-- `magrittr` (H)
-- `modelr` (H, RStudio)
-- `purrr` (H, RStudio)
-- `readr` (H, RStudio)
-- `readxl` (H, RStudio)
-- `stringr` (H, RStudio)
-- `tibble` (H, RStudio)
-- `rvest` (H, RStudio)
-- `tidyr` (H, RStudio)
-- `xml2` (H, RStudio)
+```{r Import tidyverse}
+library(tidyverse) # Import tidyverse
+```
 
 
-## R for Data Science {.columns-2}
+## Read in Data
 
-Website: http://r4ds.had.co.nz
+![Import and wrangle data](./images/data-science-wrangle.png)
 
-<img src="./images/cover.png" style="height: 70%; width: 80%">
+
+## Sample Dataset A
+
+![Dataset A](./images/datasetA.png)
+
+
+## Sample Dataset B
+
+![Dataset B](./images/datasetB.png)
+
+
+## Let's Read in the Data
+
+```{r Read in data}
+# Using the readxl package to read in Excel files
+library(readxl)
+rawData <- read_excel(path = "data/all_data.xlsx", # Path to file
+                    sheet = 2, # We want the second sheet
+                    skip = 1, # Skip the first row
+                    na = "NA") # Missing characters are "NA"
+```
+
+
+## Take a Look at the Data
+
+```{r}
+head(rawData) # Tibble shows small bit of the data
+```
+
+
+## Another Way to Look at Data
+
+```{r}
+rawData
+```
+
+
+## Start Exploring the Data!
+
+![](./images/data-science-explore.png)
+
+![](./images/data-science-communicate.png)
+
 
 
 ## Four Basic Principles to Tidyverse
 
 1. Reuse existing data structures
-2. Compose simple functions with the pipe
+2. Make simple function
 3. Embrace functional programming
 4. Design for humans
 
@@ -100,12 +128,22 @@ https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
 
 ## 1. Reuse existing data structures
 
+1. **Reuse existing data structures**
+2. Make simple functions
+3. Embrace functional programming
+4. Design for humans
+
 - Re-use pre-existing data structures
 - Many packages (e.g. ggplot2, dplyr) use rectangular data
 - Use data frames or tibbles
 
 
-## 2. Compose simple functions with the pipe
+## 2. Make simple functions
+
+1. Reuse existing data structures
+2. **Make simple functions**
+3. Embrace functional programming
+4. Design for humans
 
 - The pipe character in R is `%>%`
 - Functions should be "simple" and do one thing well
@@ -117,6 +155,12 @@ https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
 
 ## 3. Embrace functional programming
 
+
+1. Reuse existing data structures
+2. Make simple functions
+3. **Embrace functional programming**
+4. Design for humans
+
 - R is a functional language
 - Immutable objects == objects that don't change
 - In other words, if you want to make changes, do a copy-on-modify
@@ -125,12 +169,51 @@ https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html
 
 ## 4. Design for humans
 
+1. Reuse existing data structures
+2. Compose simple functions with the pipe
+3. Embrace functional programming
+4. **Design for humans**
+
 - Other people will read your code
 - Be considerate of others reading your code
 - Compute time is secondary to thinking time
 - Things to do:
     - Invest time in good names
     - Be explicit and possibly long with names
+
+
+## Tidyverse Part 1
+
+- `broom` (convert statistical objects to tidy data)
+- `dplyr` (easily tidy data)
+- `forcats` (work with categorical variables)
+- `ggplot2` (create elegant data visualizations)
+- `haven` (import and export SPSS, Stata, and SAS)
+- `httr` (work with URLs and HTTP)
+- `hms` (pretty time of day)
+- `jsonlite` (robust JSON parser)
+- `lubridate` (deal with dates easier)
+
+## Tidyverse Part 2
+
+- `magrittr` (pipe)
+- `modelr` (modeling functions)
+- `purrr` (functional programming)
+- `readr` (read tabular data)
+- `readxl` (read Excel data)
+- `stringr` (manipulate strings)
+- `tibble` (simple data frames)
+- `rvest` (web scrapping tools)
+- `tidyr` (easily tidy data)
+- `xml2` (parse XML files)
+
+
+## R for Data Science {.columns-2}
+
+Website: http://r4ds.had.co.nz
+
+
+<img src="./images/cover.png" style="height: 70%; width: 80%">
 
 
 ## Questions?

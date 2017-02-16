@@ -2,12 +2,30 @@
 
 Presentation on the tidyverse in R to clean and manipulate data
 
+**Table of Contents**
+
+- [Prerequisites](#prerequisites)
+- [About Data](#about-data)
+- [Compile Presentation](#compile-presentation)
+- [Packages within `tidyverse`](#packages-within-tidyverse)
+- [Repository Structure](#repository-structure)
+- [License](#license)
+
 
 ## Prerequisites
 
 - `R`
 - `rmarkdown` (to compile presentation)
 - `tidyverse`
+
+
+## About Data
+
+Data is a modified version found on [@laderast][ted]'s workshop on exploratory
+data analysis, [ShinyEDA][shinyeda].
+
+[ted]: https://github.com/laderast
+[shinyeda]: https://github.com/laderast/shinyEDA
 
 
 ## Compile Presentation
@@ -19,25 +37,25 @@ make
 
 ## Packages within `tidyverse`
 
-- broom
-- dplyr
-- forcats
-- ggplot2
-- haven
-- httr
-- hms
-- jsonlite
-- lubridate
-- magrittr
-- modelr
-- purrr
-- readr
-- readxl
-- stringr
-- tibble
-- rvest
-- tidyr
-- xml2
+- `broom` (convert statistical objects to tidy data)
+- `dplyr` (easily tidy data)
+- `forcats` (work with categorical variables)
+- `ggplot2` (create elegant data visualizations)
+- `haven` (import and export SPSS, Stata, and SAS)
+- `httr` (work with URLs and HTTP)
+- `hms` (pretty time of day)
+- `jsonlite` (robust JSON parser)
+- `lubridate` (deal with dates easier)
+- `magrittr` (pipe character)
+- `modelr` (modeling functions)
+- `purrr` (functional programming)
+- `readr` (read tabular data)
+- `readxl` (read Excel data)
+- `stringr` (manipulate strings)
+- `tibble` (simple data frames)
+- `rvest` (web scrapping tools)
+- `tidyr` (easily tidy data)
+- `xml2` (parse XML files)
 
 
 ## Repository Structure
